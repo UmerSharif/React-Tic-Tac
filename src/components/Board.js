@@ -4,9 +4,13 @@ import Square from "./Square";
 export default function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [xIsNext, setxIsNext] = useState(true);
+  const [winner, setWinner] = useState(null);
 
   const handleClick = i => {
     const newSquare = [...squares];
+    if (winner || newSquare[i]) {
+      return;
+    }
     if (newSquare[i] === null) {
       newSquare[i] = xIsNext ? "X" : "O";
       setSquares(newSquare);
@@ -37,7 +41,7 @@ export default function Board() {
         squares[a] === squares[b] &&
         squares[a] === squares[c]
       ) {
-        return squares[a];
+        setWinner(squares[a]);
       }
     }
     return null;
@@ -49,7 +53,8 @@ export default function Board() {
   return (
     <div>
       <div className="currentPlayer">
-        Next player is : {xIsNext ? "X" : "O"}
+        {winner && `Winner is :${winner}`}
+        {!winner ? (xIsNext ? "Next Player is : X" : "Next Player is : O") : ""}
       </div>
       <div className="board-row">
         {renderSquare(0)}
