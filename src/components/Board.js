@@ -19,6 +19,14 @@ export default function Board() {
     }
   };
 
+  const resetGameState = winner => {
+    if (winner) {
+      setSquares(Array(9).fill(null));
+      setxIsNext(true);
+      setWinner(null);
+    }
+  };
+
   function winnerDude(squares) {
     const lines = [
       [0, 1, 2],
@@ -74,6 +82,9 @@ export default function Board() {
         {renderSquare(7)}
         {renderSquare(8)}
       </div>
+      <button className="reset" onClick={resetGameState}>
+        Reset
+      </button>
     </div>
   );
 }
