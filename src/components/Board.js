@@ -9,14 +9,21 @@ export default function Board() {
   const handleClick = i => {
     const newSquare = [...squares];
     if (winner || newSquare[i]) {
+      //check if winner or square is already filled then prevent further action.
       return;
     }
-    if (newSquare[i] === null) {
-      newSquare[i] = xIsNext ? "X" : "O";
-      setSquares(newSquare);
-      setxIsNext(!xIsNext);
-      winnerDude(newSquare);
-    }
+    newSquare[i] = xIsNext ? "X" : "O";
+    setSquares(newSquare);
+    setxIsNext(!xIsNext);
+    winnerDude(newSquare);
+
+    // another way to check if a square is already filled
+    // if (newSquare[i] === null) {
+    // newSquare[i] = xIsNext ? "X" : "O";
+    // setSquares(newSquare);
+    // setxIsNext(!xIsNext);
+    // winnerDude(newSquare);
+    // }
   };
 
   const resetGameState = winner => {
