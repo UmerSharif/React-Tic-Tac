@@ -53,7 +53,10 @@ export default function Board() {
   return (
     <div>
       <div className="currentPlayer">
+        {/* if there is winner display it */}
         {winner && `Winner is :${winner}`}
+        {/* check if there is no winner yet, then check xIsNext for true/false and display the appropriate value. 
+        if there is winner return empty string at the end */}
         {!winner ? (xIsNext ? "Next Player is : X" : "Next Player is : O") : ""}
       </div>
       <div className="board-row">
