@@ -5,7 +5,7 @@ import Board from "./components/Board";
 function App() {
   return (
     <div className="App">
-      <h1>Hello world</h1>
+      <h1>Tick Tack Toe</h1>
       <Board />
     </div>
   );

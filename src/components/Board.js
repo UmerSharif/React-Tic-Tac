@@ -6,7 +6,7 @@ export default function Board() {
   const [xIsNext, setxIsNext] = useState(true);
 
   const handleClick = i => {
-    const newSquare = { ...squares, squares };
+    const newSquare = [...squares];
     console.log(newSquare);
     newSquare[i] = xIsNext ? "X" : "O";
     console.log(newSquare[i]);

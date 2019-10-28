@@ -20,3 +20,25 @@
 .App-link {
   color: #09d3ac;
 }
+
+.board-row {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.square {
+  width: 70px;
+  height: 70px;
+  background-color: #282c34;
+  border: 1px solid #5b5d61;
+}
+.square:focus {
+  outline: none;
+}
+
+.square span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #09d3ac;
+}
